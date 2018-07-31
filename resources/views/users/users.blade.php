@@ -11,7 +11,6 @@
                 {!! link_to_route('users.show', $user->name, ['id' => $user->id]) !!} <span class="text-muted">posted at {{ $user->created_at }}</span>
             </div>
             <div>
-                @include('user_favorite.favorite_button', ['micropost' => $user])
                 @if (Auth::id() == $user->user_id)
                     {!! Form::open(['route' => ['microposts.destroy', $user->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
